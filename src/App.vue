@@ -1,14 +1,16 @@
 <template>
   <header>
-    <img
-      alt="Radschnellwege Logo"
-      class="brand-logo"
-      src="assets/radschnellwege-logo.svg"
-    />
-    <span class="brand-name">Radschnellwege Deutschland</span>
-    <RsvDetails />
+    <div class="brand">
+      <img
+        alt="Radschnellwege Logo"
+        class="brand-logo"
+        src="assets/radschnellwege-logo.svg"
+      />
+      <div class="brand-name">Radschnellwege Deutschland</div>
+    </div>
+    <RsvDetails :rsvData="rsvData" />
   </header>
-  <Map />
+  <Map @rsvclicked="showData" />
 </template>
 
 <script>
@@ -17,9 +19,19 @@ import RsvDetails from "./components/RsvDetails.vue";
 
 export default {
   name: "Radschnellwege",
+  data() {
+    return {
+      rsvData: {},
+    };
+  },
   components: {
     Map,
-    RsvDetails
+    RsvDetails,
+  },
+  methods: {
+    showData(event) {
+      this.rsvData = event;
+    },
   },
 };
 </script>
@@ -40,20 +52,24 @@ body {
 }
 
 header {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.5rem;
   background: white;
+  padding: 0.5rem;
   height: 20vh;
-  box-sizing: border-box;
-
   @media screen and (min-width: 750px) {
     position: absolute;
     margin: 0.5rem;
     border-radius: 0.5rem;
     z-index: 10;
+    height: auto;
   }
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-sizing: border-box;
 }
 
 .brand-logo {

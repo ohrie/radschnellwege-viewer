@@ -1,5 +1,8 @@
 <template>
   <div>
+    {{ rsvData.name }}
+    {{ rsvData.accuracy }}
+    {{ rsvData.ref }}
   </div>
 </template>
 
@@ -7,12 +10,13 @@
 
 export default {
   name: "RsvDetails",
-  props: {},
-  data() {
-    return {};
-  },
+  props: ["rsvData"],
   mounted() {},
-  methods: {},
+  methods: {
+    showData(event) {
+      console.warn("HADSF", event);
+    }
+  },
 };
 </script>
 

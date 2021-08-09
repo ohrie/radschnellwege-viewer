@@ -14,7 +14,7 @@ export default {
   data() {
     return {
       access_token: process.env.VUE_APP_MAPBOX_ACCESS_TOKEN,
-      center: [10.552, 50.730],
+      center: [10.552, 50.73],
     };
   },
   mounted() {
@@ -34,14 +34,47 @@ export default {
     initHoverEffect() {
       this.map.on("mousemove", "radschnellwege", (e) => {
         if (e.features.length > 0) {
-          this.map.getCanvas().style.cursor = 'pointer';
+          this.map.getCanvas().style.cursor = "pointer";
         }
       });
 
       // When the mouse leaves the state-fill layer, update the feature state of the
       // previously hovered feature.
       this.map.on("mouseleave", "radschnellwege", () => {
-        this.map.getCanvas().style.cursor = '';
+        this.map.getCanvas().style.cursor = "";
+      });
+
+      this.map.on("load", () => {
+        /*this.map.addLayer({
+          id: "radschnellwege-highlighted",
+          type: "line",
+          source: "radschnellwege",
+          "source-layer": "radschnellwege",
+          paint: {
+            "line-width": 8,
+            "line-color": "#6e599f",
+            "line-opacity": 1.0,
+          },
+          filter: ["in", "ref", ""],
+        });*/
+      });
+
+      this.map.on("click", (e) => {
+        // Set `bbox` as 5px reactangle area around clicked point.
+        const bbox = [
+          [e.point.x - 5, e.point.y - 5],
+          [e.point.x + 5, e.point.y + 5],
+        ];
+        // Find features intersecting the bounding box.
+        const selectedFeatures = this.map.queryRenderedFeatures(bbox, {
+          layers: ["radschnellwege"],
+        });
+        const props = selectedFeatures.map((feature) => feature.properties)[0];
+        // Set a filter matching selected features by FIPS codes
+        // to activate the 'counties-highlighted' layer.
+        //this.map.setFilter("radschnellwege-highlighted", ["in", "ref", ...ref]);
+
+        this.$emit('rsvclicked', props);
       });
     },
   },
