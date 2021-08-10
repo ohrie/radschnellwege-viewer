@@ -59,7 +59,7 @@ body {
 
 header {
   background: white;
-  padding: 0.5rem;
+  padding: 0rem 1rem;
   height: 20vh;
   @media screen and (min-width: 750px) {
     position: absolute;

@@ -49,8 +49,13 @@ $rsv-green: #008754;
   display: flex;
   justify-content: left;
   align-items: center;
+
+  .rsvName {
+    font-weight: bold;
+  }
 }
 
-.rsvSecondaryDetails {
+.rsvSecondaryDetails ul {
+  list-style: none;
 }
 </style>
