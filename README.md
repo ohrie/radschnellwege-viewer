@@ -1,4 +1,7 @@
-# Radschnellwege Viewer
+<div align="center">
+    <img src="public/assets/radschnellwege-logo.svg" width="150">
+    <h1>Radschnellwege Viewer</h1>
+</div>
 
 Look at all the Radschnellwege in Germany planned, being built and already build. This project is depending on [radschnellwege](https://github.com/ohrie/radschnellwege), which contains the data of the cycle highways for this map.
 
