@@ -1,34 +1,52 @@
 <template>
-  <div>
-    {{ rsvData.name }}
-    {{ rsvData.accuracy }}
-    {{ rsvData.ref }}
+  <div class="rsvDetails">
+    <div class="rsvMainDetails">
+      <span class="rsv-shield" v-if="rsvData.ref">{{ rsvData.ref }}</span>
+      <span class="rsv-shield" v-else>?</span>
+      <span class="rsvName" v-if="rsvData.name">{{ rsvData.name }}</span>
+      <span class="rsvName" v-else>{{ rsvData.from }} ↔ {{ rsvData.to }}</span>
+    </div>
+    <div class="rsvSecondaryDetails">
+      {{ rsvData.accuracy }}
+    </div>
   </div>
 </template>
 
 <script>
-
 export default {
   name: "RsvDetails",
   props: ["rsvData"],
   mounted() {},
-  methods: {
-    showData(event) {
-      console.warn("HADSF", event);
-    }
-  },
+  methods: {},
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-#map {
-  height: 80vh;
-  width: 100%;
-  margin: auto;
+$rsv-green: #008754;
 
-  @media screen and (min-width: 750px) {
-    height: 100vh;
-  }
+.rsvDetails {
+  margin-top: 1rem;
+}
+
+.rsv-shield {
+  background-color: $rsv-green;
+  border-radius: 6px;
+  border: white 3px solid;
+  outline: $rsv-green 3px solid;
+  color: white;
+  font-weight: bold;
+  font-size: 2rem;
+  padding: 4px 4px 0 4px;
+  margin-right: 1rem;
+}
+
+.rsvMainDetails {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+
+.rsvSecondaryDetails {
 }
 </style>
