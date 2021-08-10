@@ -1,6 +1,7 @@
 <template>
   <header>
-    <div class="brand">
+    <button @click="hideRsvDetails()" v-if="!showPageHeadline" class="rsv_close_button">X</button>
+    <div class="brand" v-if="showPageHeadline">
       <img
         alt="Radschnellwege Logo"
         class="brand-logo"
@@ -8,7 +9,7 @@
       />
       <div class="brand-name">Radschnellwege Deutschland</div>
     </div>
-    <RsvDetails :rsvData="rsvData" />
+    <RsvDetails :rsvData="rsvData" v-if="!showPageHeadline"/>
   </header>
   <Map @rsvclicked="showData" />
 </template>
@@ -22,6 +23,7 @@ export default {
   data() {
     return {
       rsvData: {},
+      showPageHeadline: true
     };
   },
   components: {
@@ -31,7 +33,11 @@ export default {
   methods: {
     showData(event) {
       this.rsvData = event;
+      this.showPageHeadline = false;
     },
+    hideRsvDetails() {
+      this.showPageHeadline = true;
+    }
   },
 };
 </script>
@@ -81,5 +87,11 @@ header {
   font-size: 1.5rem;
   font-weight: bold;
   margin-left: 0.5rem;
+}
+
+.rsv_close_button {
+  position: absolute;
+  right: 0;
+  top: 0;
 }
 </style>

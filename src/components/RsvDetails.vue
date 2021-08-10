@@ -7,7 +7,11 @@
       <span class="rsvName" v-else>{{ rsvData.from }} ↔ {{ rsvData.to }}</span>
     </div>
     <div class="rsvSecondaryDetails">
-      {{ rsvData.accuracy }}
+      <ul>
+        <li v-if="rsvData.length">{{ rsvData.length }}km</li>
+        <li v-if="rsvData.state">Status: {{ rsvData.state }}</li>
+        <li v-if="rsvData.accuracy">Genauigkeit: {{ rsvData.accuracy }}</li>
+      </ul>
     </div>
   </div>
 </template>
