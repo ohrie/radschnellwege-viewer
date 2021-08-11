@@ -17,6 +17,7 @@
 <script>
 import Map from "./components/Map.vue";
 import RsvDetails from "./components/RsvDetails.vue";
+import "@fortawesome/fontawesome-free/css/all.css"
 
 export default {
   name: "Radschnellwege",
@@ -59,14 +60,19 @@ body {
 
 header {
   background: white;
-  padding: 0rem 1rem;
-  height: 20vh;
-  @media screen and (min-width: 750px) {
+  padding: 1rem;
+  width: 400px;
+
+  //@media screen and (min-width: 750px) {
     position: absolute;
     margin: 0.5rem;
     border-radius: 0.5rem;
     z-index: 10;
     height: auto;
+  //}
+
+  @media screen and (max-width: 750px) {
+    width: calc(100% - 3em);
   }
 }
 
@@ -93,5 +99,17 @@ header {
   position: absolute;
   right: 0;
   top: 0;
+
+  @media screen and (max-width: 750px) {
+    padding: 10px;
+  }
+}
+
+.dimmed-text {
+  color: rgb(170, 170, 170);
+}
+
+.flex {
+  display: flex;
 }
 </style>

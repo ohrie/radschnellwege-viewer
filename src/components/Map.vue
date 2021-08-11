@@ -69,12 +69,10 @@ export default {
         const selectedFeatures = this.map.queryRenderedFeatures(bbox, {
           layers: ["radschnellwege"],
         });
-        const props = selectedFeatures.map((feature) => feature.properties)[0];
-        // Set a filter matching selected features by FIPS codes
-        // to activate the 'counties-highlighted' layer.
-        //this.map.setFilter("radschnellwege-highlighted", ["in", "ref", ...ref]);
-
-        this.$emit('rsvclicked', props);
+        const props = selectedFeatures.map((feature) => feature.properties);
+        if (props.length > 0) {
+          this.$emit('rsvclicked', props[0]);
+        }
       });
     },
   },
@@ -84,7 +82,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 #map {
-  height: 80vh;
+  height: 100vh;
   width: 100%;
   margin: auto;
 

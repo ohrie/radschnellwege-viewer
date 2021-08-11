@@ -8,10 +8,14 @@
     </div>
     <div class="rsvSecondaryDetails">
       <ul>
+        <li v-if="rsvData.name && rsvData.from">{{ rsvData.from }} ↔ {{ rsvData.to }}</li>
         <li v-if="rsvData.length">{{ rsvData.length }}km</li>
-        <li v-if="rsvData.state">Status: {{ rsvData.state }}</li>
-        <li v-if="rsvData.accuracy">Genauigkeit: {{ rsvData.accuracy }}</li>
+        <!--<li v-if="rsvData.state">Status: {{ rsvData.state }}</li>-->
       </ul>
+    </div>
+    <div class="flex bottom-links">
+      <span v-if="rsvData.accuracy" class="dimmed-text">Genauigkeit: {{ rsvData.accuracy }}</span>
+      <span class="default-link" v-if="rsvData.website"><a :href="rsvData.website" target="_blank" rel="noopener noreferrer"><i class="fas fa-globe-europe"></i> Mehr Infos</a></span>
     </div>
   </div>
 </template>
@@ -30,7 +34,6 @@ export default {
 $rsv-green: #008754;
 
 .rsvDetails {
-  margin-top: 1rem;
 }
 
 .rsv-shield {
@@ -57,5 +60,19 @@ $rsv-green: #008754;
 
 .rsvSecondaryDetails ul {
   list-style: none;
+}
+
+.default-link {
+  color: grey;
+
+  &:hover,
+  &:active,
+  &:visited {
+    color: grey;
+  }
+}
+
+.bottom-links {
+  justify-content: space-between;
 }
 </style>
