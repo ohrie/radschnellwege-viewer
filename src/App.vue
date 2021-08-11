@@ -1,15 +1,34 @@
 <template>
   <header>
-    <button @click="hideRsvDetails()" v-if="!showPageHeadline" class="rsv_close_button">X</button>
+    <button
+      @click="hideRsvDetails()"
+      v-if="!showPageHeadline"
+      class="rsv_close_button"
+    >
+      X
+    </button>
     <div class="brand" v-if="showPageHeadline">
       <img
         alt="Radschnellwege Logo"
         class="brand-logo"
         src="assets/radschnellwege-logo.svg"
       />
-      <div class="brand-name">Radschnellwege Deutschland</div>
+      <div class="brand-name">
+        Radschnellwege Deutschland <span class="brand-badge">BETA</span>
+      </div>
     </div>
-    <RsvDetails :rsvData="rsvData" v-if="!showPageHeadline"/>
+    <div v-if="showPageHeadline">
+      <details>
+        <summary>Infos</summary>
+        <p>
+          Übersichtskarte über derzeit geplante, im Bau befindliche und gebaute
+          Radschnellwege in Deutschland.
+        </p>
+        <p>Daten können fehlerhaft/unvollständig sein.</p>
+      </details>
+
+    </div>
+    <RsvDetails :rsvData="rsvData" v-if="!showPageHeadline" />
   </header>
   <Map @rsvclicked="showData" />
 </template>
@@ -17,14 +36,14 @@
 <script>
 import Map from "./components/Map.vue";
 import RsvDetails from "./components/RsvDetails.vue";
-import "@fortawesome/fontawesome-free/css/all.css"
+import "@fortawesome/fontawesome-free/css/all.css";
 
 export default {
   name: "Radschnellwege",
   data() {
     return {
       rsvData: {},
-      showPageHeadline: true
+      showPageHeadline: true,
     };
   },
   components: {
@@ -38,7 +57,7 @@ export default {
     },
     hideRsvDetails() {
       this.showPageHeadline = true;
-    }
+    },
   },
 };
 </script>
@@ -64,11 +83,11 @@ header {
   width: 400px;
 
   //@media screen and (min-width: 750px) {
-    position: absolute;
-    margin: 0.5rem;
-    border-radius: 0.5rem;
-    z-index: 10;
-    height: auto;
+  position: absolute;
+  margin: 0.5rem;
+  border-radius: 0.5rem;
+  z-index: 10;
+  height: auto;
   //}
 
   @media screen and (max-width: 750px) {
@@ -93,6 +112,13 @@ header {
   font-size: 1.5rem;
   font-weight: bold;
   margin-left: 0.5rem;
+}
+
+.brand-badge {
+  background: rgb(173, 41, 23);
+  border-radius: 5px;
+  color: white;
+  padding: 5px 5px 0 5px;
 }
 
 .rsv_close_button {
