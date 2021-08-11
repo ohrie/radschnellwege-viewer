@@ -30,6 +30,7 @@ export default {
         zoom: 5.5,
         center: this.center,
       });
+      this.map.addControl(new mapboxgl.NavigationControl(), 'bottom-right');
     },
     initHoverEffect() {
       this.map.on("mousemove", "radschnellwege", (e) => {
