@@ -11,11 +11,19 @@
         <li v-if="rsvData.name && rsvData.from">{{ rsvData.from }} ↔ {{ rsvData.to }}</li>
         <li v-if="rsvData.length">{{ rsvData.length }}km</li>
         <!--<li v-if="rsvData.state">Status: {{ rsvData.state }}</li>-->
+        <li v-if="rsvData.state != built" style="font-style: italic;">Trassenverlauf nicht final</li>
       </ul>
     </div>
     <div class="flex bottom-links">
       <span v-if="rsvData.accuracy" class="dimmed-text">Genauigkeit: {{ rsvData.accuracy }}</span>
-      <span class="default-link" v-if="rsvData.website"><a :href="rsvData.website" target="_blank" rel="noopener noreferrer"><i class="fas fa-globe-europe"></i> Mehr Infos</a></span>
+      <span class="default-link" v-if="rsvData.website"><a :href="rsvData.website" target="_blank" rel="noopener noreferrer">
+        <i class="fas fa-globe-europe"></i> Mehr Infos</a>
+      </span>
+      <span class="default-link" v-if="rsvData.pilot_study" title="Link zur Machbarkeitsstudie">
+        <a :href="rsvData.pilot_study" target="_blank" rel="noopener noreferrer">
+          <i class="fas fa-file-pdf"></i> PDF
+        </a>
+      </span>
     </div>
   </div>
 </template>
