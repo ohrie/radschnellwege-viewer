@@ -14,7 +14,7 @@
         src="assets/radschnellwege-logo.svg"
       />
       <div class="brand-name">
-        Radschnellwege Deutschland <span class="brand-badge">BETA</span>
+        <span>Radschnellwege Deutschland <span class="brand-badge">BETA</span></span>
       </div>
     </div>
     <div v-if="showPageHeadline">
@@ -26,7 +26,7 @@
         </p>
         <p>Daten können fehlerhaft/unvollständig sein.</p>
       </details>
-
+      <p>Klicke auf Radschnellweg um mehr Infos zu erhalten.</p>
     </div>
     <RsvDetails :rsvData="rsvData" v-if="!showPageHeadline" />
   </header>
@@ -95,11 +95,12 @@ header {
   }
 }
 
+$brand-font-size: 1.5rem;
+
 .brand {
   display: flex;
   align-items: center;
   justify-content: center;
-
   box-sizing: border-box;
 }
 
@@ -109,7 +110,7 @@ header {
 }
 
 .brand-name {
-  font-size: 1.5rem;
+  font-size: $brand-font-size;
   font-weight: bold;
   margin-left: 0.5rem;
 }
@@ -118,7 +119,8 @@ header {
   background: rgb(173, 41, 23);
   border-radius: 5px;
   color: white;
-  padding: 5px 5px 0 5px;
+  padding: 0.3rem;
+  line-height: $brand-font-size + 0.6rem;
 }
 
 .rsv_close_button {
