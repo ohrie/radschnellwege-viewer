@@ -26,7 +26,7 @@
         </p>
         <p>Daten können fehlerhaft/unvollständig sein.</p>
       </details>
-      <p>Klicke auf Radschnellweg um mehr Infos zu erhalten.</p>
+      <p class="dimmed-text">Klicke auf Radschnellweg um mehr Infos zu erhalten.</p>
     </div>
     <RsvDetails :rsvData="rsvData" v-if="!showPageHeadline" />
   </header>
@@ -139,5 +139,9 @@ $brand-font-size: 1.5rem;
 
 .flex {
   display: flex;
+}
+
+summary {
+  cursor: pointer;
 }
 </style>
