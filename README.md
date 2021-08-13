@@ -7,20 +7,26 @@
 
 Look at all the Radschnellwege in Germany planned, being built and already build. This project is depending on [radschnellwege](https://github.com/ohrie/radschnellwege), which contains the data of the cycle highways for this map.
 
-## Project setup
-
+## Initial Setup
 Execute
 ```
 npm install
 ```
-Then fill out `.env` with your Mapbox Data.
+Then create a file `.env` with your Mapbox Data.
+```
+VUE_APP_MAPBOX_ACCESS_TOKEN=<PUT_YOU_MAPBOX_ACCESS_TOKEN_HERE>
+VUE_APP_MAPBOX_STLYE=<PUT_MAPBOX_STYLE_URL_HERE>
+```
 
-### Compiles and hot-reloads for development
+## Serve locally
+
+Start local server.
 ```
 npm run serve
 ```
 
-### Compiles and minifies for production
+## Build
+Build into `dist/` folder.
 ```
 npm run build
 ```

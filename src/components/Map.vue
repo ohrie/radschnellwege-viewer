@@ -26,7 +26,7 @@ export default {
       mapboxgl.accessToken = this.access_token;
       this.map = new mapboxgl.Map({
         container: "map",
-        style: process.env.VUE_APP_MAPBOX_STLYE,
+        style: process.env.VUE_APP_MAPBOX_STYLE,
         zoom: 5.5,
         center: this.center,
       });

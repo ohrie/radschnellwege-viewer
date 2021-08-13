@@ -7,6 +7,9 @@ jobs:
   deploy:
     name: Deploy
     runs-on: ubuntu-latest
+    env:
+      VUE_APP_MAPBOX_ACCESS_TOKEN: ${{ secrets.MAPBOX_ACCESS_TOKEN }}
+      VUE_APP_MAPBOX_STYLE: ${{ secrets.MAPBOX_STYLE }}
     steps:
     - uses: actions/checkout@master
     - name: Build Vue application
@@ -17,10 +20,9 @@ jobs:
     - run: npm run build
     - name: Copy files to server
       uses: garygrossgarten/github-action-scp@release
-      with:
+      with: 
         host: ${{ secrets.HOST }}
         username: ${{ secrets.USERNAME }}
         password: ${{ secrets.PASSWORD }}
-        port: ${{ secrets.PORT }}
         local: "./dist/"
         remote: ${{ secrets.TARGET }}
