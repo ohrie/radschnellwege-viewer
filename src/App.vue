@@ -14,7 +14,10 @@
         src="assets/radschnellwege-logo.svg"
       />
       <div class="brand-name">
-        <span>Radschnellwege Deutschland <span class="brand-badge">BETA</span></span>
+        <span
+          >Radschnellwege Deutschland
+          <span class="brand-badge">BETA</span></span
+        >
       </div>
     </div>
     <div v-if="showPageHeadline">
@@ -25,8 +28,20 @@
           Radschnellwege in Deutschland.
         </p>
         <p>Daten können fehlerhaft/unvollständig sein.</p>
+        <p>
+          Hinweise oder Aktualisierungen? Gerne Mail an
+          <a href="mailto:radschnellwege@chilla.dev"
+            >radschnellwege@chilla.dev</a
+          >
+        </p>
+        <p>
+          <i class="fab fa-github"></i>
+          <a href="https://github.com/ohrie/radschnellwege-viewer">GitHub</a>
+        </p>
       </details>
-      <p class="dimmed-text">Klicke auf Radschnellweg um mehr Infos zu erhalten.</p>
+      <p class="dimmed-text">
+        Klicke auf Radschnellweg um mehr Infos zu erhalten.
+      </p>
     </div>
     <RsvDetails :rsvData="rsvData" v-if="!showPageHeadline" />
   </header>
