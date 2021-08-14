@@ -11,7 +11,8 @@
         <li v-if="rsvData.name && rsvData.from">{{ rsvData.from }} ↔ {{ rsvData.to }}</li>
         <li v-if="rsvData.length">{{ rsvData.length }}km</li>
         <!--<li v-if="rsvData.state">Status: {{ rsvData.state }}</li>-->
-        <li v-if="rsvData.state != built" style="font-style: italic;">Trassenverlauf nicht final</li>
+        <li v-if="rsvData.state != built"><i>Trassenverlauf nicht final</i></li>
+        <li v-if="rsvData.copyright === 'OpenSreetMap'">© OpenStreetMap-Mitwirkende</li>
       </ul>
     </div>
     <div class="flex bottom-links">
@@ -40,9 +41,6 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 $rsv-green: #008754;
-
-.rsvDetails {
-}
 
 .rsv-shield {
   background-color: $rsv-green;
