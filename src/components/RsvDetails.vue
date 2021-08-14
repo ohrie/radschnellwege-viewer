@@ -10,6 +10,8 @@
       <ul>
         <li v-if="rsvData.name && rsvData.from">{{ rsvData.from }} ↔ {{ rsvData.to }}</li>
         <li v-if="rsvData.length">{{ rsvData.length }}km</li>
+        <li v-if="rsvData.state">Status: <b>{{ rsvStates[rsvData.state] }}</b></li>
+        <li v-if="!rsvData.state">Status: <b>Unbekannt</b></li>
         <!--<li v-if="rsvData.state">Status: {{ rsvData.state }}</li>-->
         <li v-if="rsvData.state != built"><i>Trassenverlauf nicht final</i></li>
         <li v-if="rsvData.copyright === 'OpenSreetMap'">© OpenStreetMap-Mitwirkende</li>
@@ -34,6 +36,19 @@ export default {
   name: "RsvDetails",
   props: ["rsvData"],
   mounted() {},
+  data: function () {
+    return {
+      rsvStates: {
+        'evaluation': 'Evaluierung',
+        'planning': 'In Planung',
+        'planned': 'Geplant',
+        'under_construction': 'Im Bau',
+        'partly_built': 'Teilweise Gebaut',
+        'built': 'Gebaut',
+        'not_realised': 'Nicht realisiert'
+      }
+    }
+  },
   methods: {},
 };
 </script>
