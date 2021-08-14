@@ -96,10 +96,11 @@ header {
   background: white;
   padding: 1rem;
   width: 400px;
+  box-shadow: 2px 2px 30px #373737c4;
 
   //@media screen and (min-width: 750px) {
   position: absolute;
-  margin: 0.5rem;
+  margin: 1rem;
   border-radius: 0.5rem;
   z-index: 10;
   height: auto;
@@ -107,6 +108,8 @@ header {
 
   @media screen and (max-width: 750px) {
     width: calc(100% - 3em);
+    margin: 0.5rem;
+    box-shadow: 2px 2px 10px #373737c4;
   }
 }
 
