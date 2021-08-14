@@ -24,7 +24,7 @@ export default {
     });
   },
   methods: {
-    async createMap() {
+    createMap() {
       mapboxgl.accessToken = this.access_token;
       this.map = new mapboxgl.Map({
         container: "map",
@@ -60,6 +60,71 @@ export default {
           this.$emit("rsvclicked", props[0]);
         }
       });
+
+      // Add hover/click style
+      /*this.map.addSource("radschnellwege-data", {
+        type: "vector",
+        url: "mapbox://henri97.ckrtk8ljd0p2a28pk6xh9zsfo-1zxi9",
+      });
+      this.map.addLayer({
+        id: "radschnellwege-highlighted",
+        type: "line",
+        source: "radschnellwege-data",
+        "source-layer": "Radschnellwege",
+        paint: {
+          "line-width": 10,
+          "line-color": "#ffffff",
+          "line-opacity": [
+            "case",
+            ["boolean", ["feature-state", "hover"], false],
+            1,
+            0,
+          ],
+        },
+        layout: {
+          "line-join": "round",
+          "line-cap": "round",
+        },
+      });
+
+      let hoveredElementId;
+      this.map.on("mousemove", "radschnellwege-highlighted", (e) => {
+        if (e.features.length > 0) {
+          if (hoveredElementId) {
+            this.map.setFeatureState(
+              {
+                source: "radschnellwege-data",
+                sourceLayer: "Radschnellwege",
+                id: hoveredElementId,
+              },
+              { hover: false }
+            );
+          }
+          hoveredElementId = e.features[0].id;
+          this.map.setFeatureState(
+            {
+              source: "radschnellwege-data",
+              sourceLayer: "Radschnellwege",
+              id: hoveredElementId,
+            },
+            { hover: true }
+          );
+        }
+      });
+
+      this.map.on("mouseleave", "radschnellwege-highlighted", () => {
+        if (hoveredElementId) {
+          this.map.setFeatureState(
+            {
+              source: "radschnellwege-data",
+              sourceLayer: "Radschnellwege",
+              id: hoveredElementId,
+            },
+            { hover: false }
+          );
+        }
+        hoveredElementId = null;
+      });*/
     },
   },
 };
