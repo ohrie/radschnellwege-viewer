@@ -19,7 +19,9 @@ export default {
   },
   mounted() {
     this.createMap();
-    this.initHoverEffect();
+    this.map.on("load", () => {
+      this.initHoverEffect();
+    });
   },
   methods: {
     async createMap() {
@@ -30,7 +32,7 @@ export default {
         zoom: 5.5,
         center: this.center,
       });
-      this.map.addControl(new mapboxgl.NavigationControl(), 'bottom-right');
+      this.map.addControl(new mapboxgl.NavigationControl(), "bottom-right");
     },
     initHoverEffect() {
       this.map.on("mousemove", "radschnellwege", (e) => {
@@ -39,25 +41,8 @@ export default {
         }
       });
 
-      // When the mouse leaves the state-fill layer, update the feature state of the
-      // previously hovered feature.
       this.map.on("mouseleave", "radschnellwege", () => {
         this.map.getCanvas().style.cursor = "";
-      });
-
-      this.map.on("load", () => {
-        /*this.map.addLayer({
-          id: "radschnellwege-highlighted",
-          type: "line",
-          source: "radschnellwege",
-          "source-layer": "radschnellwege",
-          paint: {
-            "line-width": 8,
-            "line-color": "#6e599f",
-            "line-opacity": 1.0,
-          },
-          filter: ["in", "ref", ""],
-        });*/
       });
 
       this.map.on("click", (e) => {
@@ -72,7 +57,7 @@ export default {
         });
         const props = selectedFeatures.map((feature) => feature.properties);
         if (props.length > 0) {
-          this.$emit('rsvclicked', props[0]);
+          this.$emit("rsvclicked", props[0]);
         }
       });
     },
@@ -86,9 +71,5 @@ export default {
   height: 100vh;
   width: 100%;
   margin: auto;
-
-  @media screen and (min-width: 750px) {
-    height: 100vh;
-  }
 }
 </style>
