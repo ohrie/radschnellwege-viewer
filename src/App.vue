@@ -24,7 +24,7 @@
       <details>
         <summary>Infos</summary>
         <p>
-          Übersichtskarte über derzeit geplante, im Bau befindliche und gebaute
+          Radschnellwegekarte über derzeit geplante, im Bau befindliche und gebaute
           Radschnellwege in Deutschland.
         </p>
         <p>Daten können fehlerhaft/unvollständig sein.</p>
