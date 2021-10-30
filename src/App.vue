@@ -39,7 +39,7 @@
           <a href="https://github.com/ohrie/radschnellwege-viewer">GitHub</a>
         </p>
       </details>
-      <p class="dimmed-text">
+      <p class="dimmed-text click-info">
         Klicke auf Radschnellweg um mehr Infos zu erhalten.
       </p>
     </div>
@@ -131,6 +131,10 @@ $brand-font-size: 1.5rem;
   font-size: $brand-font-size;
   font-weight: bold;
   margin-left: 0.5rem;
+
+    @media screen and (max-width: 400px) {
+    font-size: $brand-font-size * 0.7;
+  }
 }
 
 .brand-badge {
@@ -153,6 +157,12 @@ $brand-font-size: 1.5rem;
 
 .dimmed-text {
   color: rgb(170, 170, 170);
+}
+
+.dimmed-text .click-info {
+  @media screen and (max-width: 400px) {
+    font-size: 0.7rem;
+  }
 }
 
 .flex {
