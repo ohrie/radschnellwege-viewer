@@ -13,12 +13,12 @@ jobs:
       VUE_APP_UMAMI_KEY: ${{ secrets.VUE_APP_UMAMI_KEY }}
       VUE_APP_UMAMI_URL: ${{ secrets.VUE_APP_UMAMI_URL }}
     steps:
-    - uses: actions/checkout@master
+    - uses: actions/checkout@v3
     - name: Build Vue application
-      uses: actions/setup-node@v2
+      uses: actions/setup-node@v3
       with:
         node-version: '16'
-    - run: npm i
+    - run: npm ci
     - run: npm run build
     - name: Copy files to server
       uses: garygrossgarten/github-action-scp@release
