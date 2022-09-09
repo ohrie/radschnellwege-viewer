@@ -14,18 +14,15 @@
         src="assets/radschnellwege-logo.svg"
       />
       <div class="brand-name">
-        <span
-          >Radschnellwege Deutschland
-          <span class="brand-badge">BETA</span></span
-        >
+        <span>Radschnellwege Deutschland </span>
       </div>
     </div>
     <div v-if="showPageHeadline">
       <details>
         <summary>Infos</summary>
         <p>
-          Radschnellwegekarte über derzeit geplante, im Bau befindliche und gebaute
-          Radschnellwege in Deutschland.
+          Radschnellwegekarte über derzeit geplante, im Bau befindliche und
+          gebaute Radschnellwege in Deutschland.
         </p>
         <p>Daten können fehlerhaft/unvollständig sein.</p>
         <p>
@@ -132,7 +129,7 @@ $brand-font-size: 1.5rem;
   font-weight: bold;
   margin-left: 0.5rem;
 
-    @media screen and (max-width: 400px) {
+  @media screen and (max-width: 400px) {
     font-size: $brand-font-size * 0.7;
   }
 }

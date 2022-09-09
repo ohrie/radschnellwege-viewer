@@ -12,10 +12,12 @@ Execute
 ```
 npm install
 ```
-Then create a file `.env` with your Mapbox Data.
+Then create a file `.env.local` with your Mapbox Data.
 ```
 VUE_APP_MAPBOX_ACCESS_TOKEN=<PUT_YOU_MAPBOX_ACCESS_TOKEN_HERE>
-VUE_APP_MAPBOX_STLYE=<PUT_MAPBOX_STYLE_URL_HERE>
+VUE_APP_MAPBOX_STYLE=<PUT_MAPBOX_STYLE_URL_HERE>
+VUE_APP_UMAMI_KEY=
+VUE_APP_UMAMI_URL=
 ```
 
 ## Serve locally
