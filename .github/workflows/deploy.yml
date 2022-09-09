@@ -10,6 +10,8 @@ jobs:
     env:
       VUE_APP_MAPBOX_ACCESS_TOKEN: ${{ secrets.MAPBOX_ACCESS_TOKEN }}
       VUE_APP_MAPBOX_STYLE: ${{ secrets.MAPBOX_STYLE }}
+      VUE_APP_UMAMI_KEY: ${{ secrets.VUE_APP_UMAMI_KEY }}
+      VUE_APP_UMAMI_URL: ${{ secrets.VUE_APP_UMAMI_URL }}
     steps:
     - uses: actions/checkout@master
     - name: Build Vue application
