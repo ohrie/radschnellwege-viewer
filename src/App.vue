@@ -14,7 +14,7 @@
         src="assets/radschnellwege-logo.svg"
       />
       <div class="brand-name">
-        <span>Radschnellwege Deutschland </span>
+        <span>Radschnellwege</span>
       </div>
     </div>
     <div v-if="showPageHeadline">

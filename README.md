@@ -5,7 +5,7 @@
 
 [![Deploy](https://github.com/ohrie/radschnellwege-viewer/actions/workflows/deploy.yml/badge.svg)](https://github.com/ohrie/radschnellwege-viewer/actions/workflows/deploy.yml)
 
-Look at all the Radschnellwege in Germany planned, being built and already build. This project is depending on [radschnellwege](https://github.com/ohrie/radschnellwege), which contains the data of the cycle highways for this map.
+Look at all the Radschnellwege planned, being built and already build. This project is depending on [radschnellwege](https://github.com/ohrie/radschnellwege), which contains the data of the cycle highways for this map.
 
 ## Initial Setup
 Execute
