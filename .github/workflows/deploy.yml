@@ -31,4 +31,4 @@ jobs:
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
           local: "./dist/"
-          remote: ${{ inputs.TARGET }}
+          remote: ${{ vars.TARGET }}
