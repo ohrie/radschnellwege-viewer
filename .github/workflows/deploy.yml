@@ -24,11 +24,12 @@ jobs:
 
       - run: npm run build
 
-      - name: Copy files to server
-        uses: garygrossgarten/github-action-scp@release
+      - name: Copy files
+        uses: burnett01/rsync-deployments@7.0.1
         with:
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USERNAME }}
-          password: ${{ secrets.PASSWORD }}
-          local: "./dist/"
-          remote: ${{ vars.TARGET }}
+          switches: -avzr --delete
+          path: ./dist/
+          remote_path: ${{ vars.TARGET }}
+          remote_host: ${{ secrets.HOST }}
+          remote_user: ${{ vars.USERNAME }}
+          remote_key: ${{ secrets.SSH_PRIVATE_KEY }}
