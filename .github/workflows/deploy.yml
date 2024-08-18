@@ -31,5 +31,5 @@ jobs:
           path: ./dist/
           remote_path: ${{ vars.TARGET }}
           remote_host: ${{ secrets.HOST }}
-          remote_user: ${{ vars.USERNAME }}
+          remote_user: ${{ secrets.USERNAME }}
           remote_key: ${{ secrets.SSH_PRIVATE_KEY }}
