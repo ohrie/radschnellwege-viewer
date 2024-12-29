@@ -27,8 +27,8 @@
         <p>Daten können fehlerhaft/unvollständig sein.</p>
         <p>
           Hinweise oder Aktualisierungen? Gerne Mail an
-          <a href="mailto:radschnellwege@chilla.dev"
-            >radschnellwege@chilla.dev</a
+          <a href="mailto:radschnellwege@fahrrad.dev"
+            >radschnellwege@fahrrad.dev</a
           >
         </p>
         <p>
