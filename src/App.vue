@@ -40,10 +40,10 @@
         Klicke auf Radschnellweg um mehr Infos zu erhalten.
       </p>
     </div>
-    <SearchBox @location-selected="flyToLocation" />
+    <SearchBox :map-center="mapCenter" @location-selected="flyToLocation" />
     <RsvDetails :rsvData="rsvData" v-if="!showPageHeadline" />
   </header>
-  <Map ref="map" @rsvclicked="showData" />
+  <Map ref="map" @rsvclicked="showData" @center-changed="mapCenter = $event" />
 </template>
 
 <script>
@@ -58,6 +58,7 @@ export default {
     return {
       rsvData: {},
       showPageHeadline: true,
+      mapCenter: null,
     };
   },
   components: {

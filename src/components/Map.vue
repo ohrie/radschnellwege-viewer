@@ -33,6 +33,10 @@ export default {
         center: this.center,
       });
       this.map.addControl(new mapboxgl.NavigationControl(), "bottom-right");
+      this.map.on("moveend", () => {
+        const c = this.map.getCenter();
+        this.$emit("center-changed", { lat: c.lat, lon: c.lng });
+      });
     },
     flyTo(lon, lat) {
       this.map.flyTo({ center: [lon, lat], zoom: 11 });

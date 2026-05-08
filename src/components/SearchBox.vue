@@ -34,32 +34,22 @@
 <script>
 export default {
   name: "SearchBox",
+  props: {
+    mapCenter: {
+      type: Object,
+      default: null,
+    },
+  },
   emits: ["location-selected"],
   data() {
     return {
       query: "",
       suggestions: [],
       activeIndex: -1,
-      userLocation: null,
       debounceTimer: null,
     };
   },
-  mounted() {
-    this.requestUserLocation();
-  },
   methods: {
-    requestUserLocation() {
-      if (!navigator.geolocation) return;
-      navigator.geolocation.getCurrentPosition(
-        (pos) => {
-          this.userLocation = {
-            lat: pos.coords.latitude,
-            lon: pos.coords.longitude,
-          };
-        },
-        () => {}
-      );
-    },
     onInput() {
       clearTimeout(this.debounceTimer);
       this.activeIndex = -1;
@@ -75,9 +65,9 @@ export default {
         limit: 6,
         lang: "de",
       });
-      if (this.userLocation) {
-        params.set("lat", this.userLocation.lat);
-        params.set("lon", this.userLocation.lon);
+      if (this.mapCenter) {
+        params.set("lat", this.mapCenter.lat);
+        params.set("lon", this.mapCenter.lon);
       }
       try {
         const res = await fetch(
