@@ -34,6 +34,9 @@ export default {
       });
       this.map.addControl(new mapboxgl.NavigationControl(), "bottom-right");
     },
+    flyTo(lon, lat) {
+      this.map.flyTo({ center: [lon, lat], zoom: 11 });
+    },
     initHoverEffect() {
       this.map.on("mousemove", "radschnellwege", (e) => {
         if (e.features.length > 0) {

@@ -40,14 +40,16 @@
         Klicke auf Radschnellweg um mehr Infos zu erhalten.
       </p>
     </div>
+    <SearchBox @location-selected="flyToLocation" />
     <RsvDetails :rsvData="rsvData" v-if="!showPageHeadline" />
   </header>
-  <Map @rsvclicked="showData" />
+  <Map ref="map" @rsvclicked="showData" />
 </template>
 
 <script>
 import Map from "./components/Map.vue";
 import RsvDetails from "./components/RsvDetails.vue";
+import SearchBox from "./components/SearchBox.vue";
 import "@fortawesome/fontawesome-free/css/all.css";
 
 export default {
@@ -61,6 +63,7 @@ export default {
   components: {
     Map,
     RsvDetails,
+    SearchBox,
   },
   methods: {
     showData(event) {
@@ -69,6 +72,9 @@ export default {
     },
     hideRsvDetails() {
       this.showPageHeadline = true;
+    },
+    flyToLocation({ lat, lon }) {
+      this.$refs.map.flyTo(lon, lat);
     },
   },
 };
