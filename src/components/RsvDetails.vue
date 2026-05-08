@@ -20,7 +20,7 @@
     <div class="flex bottom-links">
       <span v-if="rsvData.accuracy" class="dimmed-text">Genauigkeit: {{ rsvData.accuracy }}</span>
       <span class="default-link" v-if="rsvData.website"><a :href="rsvData.website" target="_blank" rel="noopener noreferrer">
-        <i class="fas fa-globe-europe"></i> Mehr Infos</a>
+        <i class="fas fa-earth-europe"></i> Mehr Infos</a>
       </span>
       <span class="default-link" v-if="rsvData.pilot_study" title="Link zur Machbarkeitsstudie">
         <a :href="rsvData.pilot_study" target="_blank" rel="noopener noreferrer">

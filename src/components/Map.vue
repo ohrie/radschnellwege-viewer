@@ -13,7 +13,7 @@ export default {
   props: {},
   data() {
     return {
-      access_token: process.env.VUE_APP_MAPBOX_ACCESS_TOKEN,
+      access_token: import.meta.env.VITE_MAPBOX_ACCESS_TOKEN,
       center: [10.552, 50.73],
     };
   },
@@ -28,7 +28,7 @@ export default {
       mapboxgl.accessToken = this.access_token;
       this.map = new mapboxgl.Map({
         container: "map",
-        style: process.env.VUE_APP_MAPBOX_STYLE,
+        style: import.meta.env.VITE_MAPBOX_STYLE,
         zoom: 5.5,
         center: this.center,
       });

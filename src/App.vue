@@ -11,7 +11,7 @@
       <img
         alt="Radschnellwege Logo"
         class="brand-logo"
-        src="assets/radschnellwege-logo.svg"
+        src="/assets/radschnellwege-logo.svg"
       />
       <div class="brand-name">
         <span>Radschnellwege</span>
