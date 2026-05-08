@@ -8,17 +8,17 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     env:
-      VUE_APP_MAPBOX_ACCESS_TOKEN: ${{ secrets.MAPBOX_ACCESS_TOKEN }}
-      VUE_APP_MAPBOX_STYLE: ${{ secrets.MAPBOX_STYLE }}
-      VUE_APP_UMAMI_KEY: ${{ secrets.VUE_APP_UMAMI_KEY }}
-      VUE_APP_UMAMI_URL: ${{ secrets.VUE_APP_UMAMI_URL }}
+      VITE_MAPBOX_ACCESS_TOKEN: ${{ secrets.MAPBOX_ACCESS_TOKEN }}
+      VITE_MAPBOX_STYLE: ${{ secrets.MAPBOX_STYLE }}
+      VITE_UMAMI_KEY: ${{ secrets.VUE_APP_UMAMI_KEY }}
+      VITE_UMAMI_URL: ${{ secrets.VUE_APP_UMAMI_URL }}
     steps:
       - uses: actions/checkout@v4
 
       - name: Build Vue application
         uses: actions/setup-node@v4
         with:
-          node-version: "16"
+          node-version: "24"
 
       - run: npm ci
 
